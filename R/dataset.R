@@ -91,7 +91,7 @@ ukb_df <- function(fileset, path = ".", n_threads = "dt", data.pos = 2) {
   # Read .tab file from user named path with data.table::fread
   # Include UKB-generated categorical variable labels
   bd <- read_ukb_tab(fileset, column_type = ukb_key$fread_column_type, path, n_threads = n_threads)
-  source(file.path(path, r_file), local = TRUE)
+  try(source(file.path(path, r_file), local = TRUE))
 
   names(bd) <- ukb_key$col.name[match(names(bd), ukb_key$field.tab)]
   return(bd)
