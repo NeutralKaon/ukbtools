@@ -216,9 +216,7 @@ read_ukb_tab <- function(fileset, column_type, path = ".", n_threads = "max") {
                                 pattern = "bd *<-" ,
                                 replacement = stringr::str_interp(
                                                                   "# Read function edited by ukbtools ${edit_date}\n# bd <-")
-      )
-
-      cat(f, file = r_location, sep = "\n")
+      );      cat(f, file = r_location, sep = "\n")
   )
   bd <- data.table::fread(
     input = tab_location,
